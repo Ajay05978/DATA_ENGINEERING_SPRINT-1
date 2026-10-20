@@ -56,6 +56,25 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 - [ ] **Task 1 - Write the discovery brief** (ID `B1.1`): Read the client story in `docs/01-project-brief.md`, section 1. Write a one page discovery brief. It must cover: what we are building, who uses it, what questions it must answer, what is still unclear, and what "done" looks like. Use plain language, as if the client will read it.
   **Commit:** `discovery/discovery_brief.md`, open a pull request for peer review.
 
+  We are building a data platform  for a due deligence company  the main clients of the company are  lenders, banks and procuremnt teams so the customers of due diligence company wanted to know some details of the Indian companies before they lend money or buy shares from a certain company they need to know the details of that particular company including the financial risk so they can easily take a decision regarding whether they need to take a deal with that specific company
+
+   so for this we are mainly taking four data sources and all four are published by the Indian government 
+
+  1.MCA Company Master Data-for knowing he company name, the registration date, the current status,the company class and category, the authorized capital, the paid up capital, the registered state, the Registrar of Companies office, the main business activity, and the registered office address.
+
+  2.IBBI Insolvency Records-When a company cannot pay its debts it can enter a legal process called the Corporate Insolvency Resolution Process called CIRP the IBBI contains the records of all the companies going through this process
+
+  3.MCA Corporate Data -The corporate data contains the details of  active companies each state has, how company counts are split across industries, how capital is distributed, and filing trends over the years.
+
+  4.RBI Policy Rate Data -RBI policy rate data is included to provide information such as tracking national interest rates over time .It helps analysts evaluate external economic conditions, like understanding the borrowing cost environment when a company was incorporated
+
+  Certain thing that still unclear are The MCA data updates monthly and the IBBI data updates quarterly so how should we set this in our platform and if a company got black-listed it will only update when these datas get updated it can cause several issues .AND another thing is there aren't any particular criteria for how should we include a company in Resd List
+
+
+  The final done will look like if a non technical person look at the platform and search for a company it should give the idea of how the company is ,lending or buying from that company is good or bad decision not by just a random prediction by siting the proofs that are supporting the statement 
+
+
+
 - [ ] **Task 2 - List the open questions** (ID `B1.2`): Write down the five questions you would ask the client if you had thirty minutes with them. Focus on things the brief cannot decide alone, like how far back the history must go, and what "risk" means to them.
   **Commit:** append to `discovery/discovery_brief.md` in an "Open Questions" section, update the same pull request.
 
