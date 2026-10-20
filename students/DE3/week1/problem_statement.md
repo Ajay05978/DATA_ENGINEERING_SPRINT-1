@@ -82,6 +82,14 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 - [ ] **Task 4 - Summarise the four sources** (ID `B2.1`): For each of the four data sources, write three sentences in your own words: what it is, which client question it answers, and how it arrives (file type and cadence). No copying from `docs/01-project-brief.md`.
   **Commit:** `discovery/source_summary.md`, open a pull request.
 
+1.MCA : ministry of coperate affairs is resposible  for registering companies in india . it assign a unique CIN number to each companies it also coantains attributes such as company current status,registartion date . This dataset is used because it answers the question whether the company is actually regirsted, active ,total assets . The data set arrives in ZIP file each ZIP conatins the compaies registered in the corresponding ROC.
+
+2.IBBI : it is responsible for pulishing the insolvency records of the companies that are going through financial crirs.this dataset is used because it give the whether the company is going through a financial crisis,total debts, total debts recovered ,we can map the data with MCA using CIN column. It arrives as a pdf file , we need to use python script to extract the data.
+
+3.MCA Corporate Data Management Portal : It contains the statistical rerprestion of company status accros different states , also the statistics of how many active compnay across different sectors in th india.This data can be used suppose if the current active company in a state is high as compared to other sectors which shows high acceptance by the people ,which will guarantee the the growth of that company so that lenders,banks can give money. It comes with statistical infromation in the site so we need to do web scrapping to eract the data using pyhton tools such as butterfly soup.
+
+4.RBI: It sets the repo rates to the banks,suppose if the economy is going through a inflation the RBI will set the repo rates high which will forces the banks to lend monwy with high interest also if the economy is going to crisis the RBI will reduce the rates so that banks can reduce the interest rate. Knowing the repo rate at the exact time a company was registered gives lenders a quick snapshot of the economic condition — whether money was expensive or cheap when that business first opened its doors.It comes as a CSV file but it needs some cleaning
+
 - [ ] **Task 5 - Write the onboarding paragraph** (ID `B2.2`): Write the one paragraph business ask you would hand to a new teammate joining the project, so they understand the project without reading anything else.
   **Commit:** `discovery/teammate_onboarding.md`, open a pull request.
 
