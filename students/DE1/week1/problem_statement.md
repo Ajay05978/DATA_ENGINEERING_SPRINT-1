@@ -90,7 +90,7 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
 
 - [ ] **Task 3 - Draw the whole system on one page** (ID `A1.1`): Draw the end-to-end picture: the four data sources on the left, the pipeline in the middle (files, Snowflake, the dashboard), and the people who use it on the right. Label each source with its format (CSV, PDF, HTML table, CSV). A non-technical person must be able to read it without you explaining it. Use Mermaid in a Markdown file - it renders on GitHub and is easy to review in a pull request - or any diagram tool you already know.
-  **Commit:** `design/context_diagram.md` (embed the diagram), add it to the discovery brief pull request.
+  **Commit:** `design/context_diagram.md` (embed the diagram), add it to the discovery brief pull request. 
 
 **Why this is a milestone:** building the wrong thing perfectly is the most expensive mistake in data work. Nobody moves far past week 1 until the cohort agrees on what is being built.
 
@@ -102,6 +102,41 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
 - [ ] **Task 4 - Summarise the four sources** (ID `B2.1`): For each of the four data sources, write three sentences in your own words: what it is, which client question it answers, and how it arrives (file type and cadence). No copying from `docs/01-project-brief.md`.
   **Commit:** `discovery/source_summary.md`, open a pull request.
+
+  
+     1.MCA company master data:MCA stands for ministry of corporate affairs it is the government body that registers every
+       company in india.it assign a 21 character unique number to every company that registers called CIN.For each companyit 
+      will provide the CIN, the company name, the registration date, the current status
+
+     It answers the question the comapny is really registered and still active
+
+     Data are in the form of zip files each zip file contains one Registrar of Companies office, called an RoC
+
+     2.IBBI Insolvency Records-IBBI stands for  Bankruptcy Board of India it look after the bankruptcy proceedings
+     when a company cannot pay their debt they will go through a process called Corporate Insolvency Resolution Process
+     IBBI published the names of companies going through such process
+
+     It answers the question that does this company have a record of financial trouble
+
+     THE data set is in the form of a pdf need to perfom a python script to change the pdf into proper table structure
+
+
+     3.MCA Corporate Data Management Portal:It is a public analylitcs portal in which it has the datas of the active and inactive companies,the details of differents sectors performing, the comparison with public  and private sector,also have the state wise performance 
+
+     It answers the question about how does a company compare to others in its state and industry. 
+
+     The datas are in the web page so need to run the python script to get in the proper structure
+
+     4.RBI Policy Rate Data:which decides the repo rate,which is interest rate at which the central bank lends money to the commercial bank 
+
+     Repo rate is not direct but an indirect tool for calculating how the company has raised so far
+
+     The data is in the form of csv some corrections needed
+
+
+     
+
+
 
 - [ ] **Task 5 - Write the onboarding paragraph** (ID `B2.2`): Write the one paragraph business ask you would hand to a new teammate joining the project, so they understand the project without reading anything else.
   **Commit:** `discovery/teammate_onboarding.md`, open a pull request.
