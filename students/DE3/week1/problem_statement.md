@@ -55,6 +55,10 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
 - [ ] **Task 1 - Write the discovery brief** (ID `B1.1`): Read the client story in `docs/01-project-brief.md`, section 1. Write a one page discovery brief. It must cover: what we are building, who uses it, what questions it must answer, what is still unclear, and what "done" looks like. Use plain language, as if the client will read it.
   **Commit:** `discovery/discovery_brief.md`, open a pull request for peer review.
+  
+    The client is a fintech due diligence company ,major clients of that company are from banks, lenders . the company wants to make a product that can help the client understand whether the company is trustworthy or not , so that they can lend money . For that needed to check things such as whether the company is active , any financial crisis. Earlier a data analyst need to visit required sites such as MCA ,IBI to  collect the required information and store in a spreadsheet which is time consuming and also it needed to be updated regularly. The client wants a single platform that contain all the company and the details such as whether the company is active, registered or is their any financial crisis, the history to  be kept, finally a clean dashboard that shows all the above information.
+
+    
 
 - [ ] **Task 2 - List the open questions** (ID `B1.2`): Write down the five questions you would ask the client if you had thirty minutes with them. Focus on things the brief cannot decide alone, like how far back the history must go, and what "risk" means to them.
   **Commit:** append to `discovery/discovery_brief.md` in an "Open Questions" section, update the same pull request.
