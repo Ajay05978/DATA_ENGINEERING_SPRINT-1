@@ -62,6 +62,11 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
 - [ ] **Task 2 - List the open questions** (ID `B1.2`): Write down the five questions you would ask the client if you had thirty minutes with them. Focus on things the brief cannot decide alone, like how far back the history must go, and what "risk" means to them.
   **Commit:** append to `discovery/discovery_brief.md` in an "Open Questions" section, update the same pull request.
+   1. how long do you want to keep the past record?
+   2. which time interval do you want the dashboard to be updated ?
+   3. which is the key factor you are considering whether it is the comapny overall debt or any other factor?
+   4. what are the features you would needed to be in dashboard , like company details based on specific region and filter out risk companies?
+   5. Do you need the state-level data broken down by districts and local towns, or is a state-wide summary enough for your analysis?
 
 - [ ] **Task 3 - Draw the whole system on one page** (ID `A1.1`): Draw the end-to-end picture: the four data sources on the left, the pipeline in the middle (files, Snowflake, the dashboard), and the people who use it on the right. Label each source with its format (CSV, PDF, HTML table, CSV). A non-technical person must be able to read it without you explaining it. Use Mermaid in a Markdown file - it renders on GitHub and is easy to review in a pull request - or any diagram tool you already know.
   **Commit:** `design/context_diagram.md` (embed the diagram), add it to the discovery brief pull request.
