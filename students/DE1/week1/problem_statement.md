@@ -62,21 +62,32 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
   1.MCA Company Master Data-for knowing he company name, the registration date, the current status,the company class and category, the authorized capital, the paid up capital, the registered state, the Registrar of Companies office, the main business activity, and the registered office address.
 
-  2.IBBI Insolvency Records-When a company cannot pay its debts it can enter a legal process called the Corporate Insolvency Resolution Process called CIRP the IBBI contains the records of all the companies going through this process
+  2.IBBI Insolvency Records-When a company cannot pay its debts it can enter a legal process called the Corporate Insolvency Resolution Process the IBBI contains the records of all the companies going through this process
 
   3.MCA Corporate Data -The corporate data contains the details of  active companies each state has, how company counts are split across industries, how capital is distributed, and filing trends over the years.
 
   4.RBI Policy Rate Data -RBI policy rate data is included to provide information such as tracking national interest rates over time .It helps analysts evaluate external economic conditions, like understanding the borrowing cost environment when a company was incorporated
 
-  Certain thing that still unclear are The MCA data updates monthly and the IBBI data updates quarterly so how should we set this in our platform and if a company got black-listed it will only update when these datas get updated it can cause several issues .AND another thing is there aren't any particular criteria for how should we include a company in Resd List
+  Certain thing that still unclear are the MCA data updates monthly and the IBBI data updates quarterly so how should we set this in our platform and if a company got black-listed it will only update when these datas get updated it can cause several issues and another thing is there aren't any particular criteria for how should we include a company in Resd List
 
 
-  The final done will look like if a non technical person look at the platform and search for a company it should give the idea of how the company is ,lending or buying from that company is good or bad decision not by just a random prediction by siting the proofs that are supporting the statement 
+  The final done will look like if a non technical person look at the platform and search for a company it should give the idea of how the company is ,lending or buying from that company is good or bad decision not by just a random prediction by citing the proofs that are supporting the statement 
 
 
 
 - [ ] **Task 2 - List the open questions** (ID `B1.2`): Write down the five questions you would ask the client if you had thirty minutes with them. Focus on things the brief cannot decide alone, like how far back the history must go, and what "risk" means to them.
   **Commit:** append to `discovery/discovery_brief.md` in an "Open Questions" section, update the same pull request.
+
+    1.According to you what will be the conditions for include a company in blacklist
+
+    2.Would you need the role back acces control to restrict the sensitive data
+      
+    3.How many years datas do you need in the platform 
+      
+    4.would you need any other datas other than these four gov datas
+      
+    5.How frequently are you expecting the upadtes on th platform 
+
 
 - [ ] **Task 3 - Draw the whole system on one page** (ID `A1.1`): Draw the end-to-end picture: the four data sources on the left, the pipeline in the middle (files, Snowflake, the dashboard), and the people who use it on the right. Label each source with its format (CSV, PDF, HTML table, CSV). A non-technical person must be able to read it without you explaining it. Use Mermaid in a Markdown file - it renders on GitHub and is easy to review in a pull request - or any diagram tool you already know.
   **Commit:** `design/context_diagram.md` (embed the diagram), add it to the discovery brief pull request.
