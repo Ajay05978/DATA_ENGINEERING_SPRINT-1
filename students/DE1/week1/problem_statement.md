@@ -108,7 +108,7 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
        company in india.it assign a 21 character unique number to every company that registers called CIN.For each companyit 
       will provide the CIN, the company name, the registration date, the current status
 
-     It answers the question the comapny is really registered and still active
+     It answers the question the comapany is really registered and still active
 
      Data are in the form of zip files each zip file contains one Registrar of Companies office, called an RoC
 
