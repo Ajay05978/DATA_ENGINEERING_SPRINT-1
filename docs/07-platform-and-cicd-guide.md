@@ -1,6 +1,8 @@
 # Platform and CI/CD Guide
 
-This guide is for students picked for the weekly platform rotation. It explains how working in the shared `platform` and `delivery` folders is different from working in your own practice folder.
+This guide is for students picked for the weekly platform rotation in the 15-week program. It explains how working in the shared `platform` and `delivery` folders is different from working in your own practice folder.
+
+If you need help with VS Code, Git or Snowflake setup, see `docs/14-vscode-snowflake-setup-guide.md`.
 
 If you are not on the rotation this week, you do not need this guide yet. You will need it later, because everyone gets a turn.
 
@@ -18,6 +20,8 @@ A mistake in `platform` breaks the shared pipeline for all 15 to 30 people, and 
 
 Being reviewed strictly is not a judgement on you. It is how real teams protect shared code.
 
+The class repo folders `platform/` and `delivery/` are shared. The team leader is the only person who updates `delivery/` in the class repo, by copying the reviewed files from the team repo. See `docs/15-team-project-repo-and-delivery.md`.
+
 ## 3. The automated checks
 
 CI stands for continuous integration. In practice it means: every time you open a pull request, GitHub automatically runs some checks on your code and shows a green tick or a red X. Your pull request cannot be merged until the ticks are green.
@@ -27,6 +31,8 @@ Two checks run on platform work.
 **The linter.** A linter is a tool that reads your code and flags formatting and style problems, for example inconsistent SQL keyword casing or unused Python imports. We run `sqlfluff` for SQL and a Python style check. It catches the small stuff automatically so human reviewers can spend their time on the logic instead.
 
 **The dbt check.** This one parses your dbt code to confirm it is structurally valid, for example that every model you reference actually exists. It is a parse only. It does not run your models against Snowflake, because running the full pipeline on every pull request would be slow and would burn warehouse credits. The full build runs after your code is merged into `main`.
+
+This cohort uses dbt Core. dbt Projects on Snowflake in a Workspace is an optional extra. The check is the same either way.
 
 ## 4. What to do when a check fails
 

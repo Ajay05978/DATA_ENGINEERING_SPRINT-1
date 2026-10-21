@@ -1,228 +1,175 @@
 # Week Map
 
-**All thirteen weeks on one page.** Open your own `students/DEx/weekY/problem_statement.md` for the actual tasks; this file is for seeing where you are and what is coming.
+All 15 weeks at a glance. This file is built from the week files in `docs/_week-templates/`. If a week file and this map disagree, the week file wins.
 
----
+Every week has the same six parts: What We Are Doing, Why We Are Doing It, What to Learn First, Where to Find Resources, Step-by-Step Guide, What to Commit. Open your own `students/DEx/weekN/problem_statement.md` for the real tasks.
 
-## The shape of the sprint
+| Week | Theme | Task groups | Task IDs |
+|---|---|---|---|
+| 1 | Set up your tools and understand the ask | Set up your tools; Discovery Brief **[MILESTONE]**; Source Summaries and the Client Ask | G0.1, G0.2, G0.3, G0.4, B1.1, B1.2, A1.1, B2.1, B2.2 |
+| 2 | First tables and first Python | Databases and Tables; Python From Zero | S1.1, S1.2, S1.3, P0.1, P0.2, P0.3, P0.4 |
+| 3 | Python reads files; trust the data | Python Basics: Files and Functions; Data Integrity: Constraints | P1.1, P1.2, P1.3, S2.1, S2.2, S2.3 |
+| 4 | Queries, joins, and checking data with Python | Queries, Grouping and Joins; Type Hints and Data Validation | S3.1, S3.2, S3.3, S3.4, S3.5, P2.1, P2.2, P2.3 |
+| 5 | Missing values, messy strings | Missing Values and Set Operations; SQL Functions: String, Date, Math | S4.1, S4.2, S4.3, S4.4, S5.1, S5.2, S5.3, S5.4, S5.5 |
+| 6 | First load, and the design begins | First Snowflake Load [MILESTONE]; Design Record, ERD and Architecture; Pipeline Flow Diagram | P3.1, P3.2, P3.3, B3.1, B3.2, B3.3, A2.1 |
+| 7 | Readable SQL and the agreed model | Views and CTEs; Star Schema Design [MILESTONE]; Retry Logic and Context Managers | S6.1, S6.2, S6.3, S7.1, S7.2, S7.3, P4.1, P4.2, P4.3 |
+| 8 | Big files and cleaner tooling | Normalization; Generators and Large Files; Logging and Command Line Tools | S8.1, S8.2, P5.1, P5.2, P5.3, P6.1, P6.2 |
+| 9 | Extractors and the design sign-off | Object Oriented Extractors; Design Review from the Python Side [MILESTONE]; Design Review Update | P7.1, P7.2, P7.3, P8.1, A3.1 |
+| 10 | Window functions and tests | Window Functions; Testing with pytest | S9.1, S9.2, S9.3, S9.4, P9.1, P9.2, P9.3 |
+| 11 | History that survives | Slowly Changing Dimensions (SCD2) [MILESTONE]; Parallel Downloads; Python and Snowflake Together; Technical Brief [MILESTONE] | S10.1, S10.2, S10.3, P10.1, P10.2, P11.1, P11.2, D1.1, D1.2 |
+| 12 | The shared platform begins | Stages and File Formats; Bronze Loads; Teach-Back: the Load Path **[MILESTONE]**; dbt Staging Models | D2.1, D2.2, D2.3, D3.1, D3.2, D3.3, D4.1, D5.1, D5.2, D5.3 |
+| 13 | Gold layer and the monthly refresh | Layer Contracts; Gold Layer with dbt; The Monthly Refresh **[MILESTONE]** | D6.1, D6.2, D7.1, D7.2, D7.3, P12.1, P12.2 |
+| 14 | Orchestrate, break, fix | Quality Gates with Great Expectations; Airflow Orchestration; Peer Review; Break, Fix and Postmortem | D8.1, D8.2, D8.3, D9.1, D9.2, B4.1, B4.2, B5.1, B5.2 |
+| 15 | Present and hand over | Dashboard; Stakeholder Delivery; Final Architecture for Handover; Project Handover [MILESTONE] | B6.1, B6.2, B7.1, B7.2, A4.1, B8.1, B8.2, D10.1, D10.2 |
 
-| Weeks | Phase | What is happening |
-|---|---|---|
-| 1 to 4 | Foundations | Understand the client. Learn SQL and Python on real messy data. First load into Snowflake. The gold layer takes its first shape on paper. |
-| 5 to 8 | Craft | Readable SQL, the agreed data model, real extractors, window functions, tests. |
-| 9 to 11 | The platform | The cohort stops practising separately and builds the one shared pipeline: bronze, dbt staging, gold, quality gates, the monthly refresh. |
-| 12 to 13 | Delivery | Orchestrate it, break it on purpose, fix it, present it, hand it over. |
+## Week by week
 
----
+### Week 1 - Set up your tools and understand the ask
 
-## Where the milestones sit
+Theme: set up your tools, understand the client, and make your first page and diagram
 
-```
-W1        W4        W5/W7         W9/W11       W13
-│         │         │             │            │
-Discovery First     Star Schema   SCD2         Project
-Brief     Load      Design        Build        Handover
-```
+- **Set up your tools**: G0.1, G0.2, G0.3, G0.4
+- **Discovery Brief **[MILESTONE]****: B1.1, B1.2, A1.1
+- **Source Summaries and the Client Ask**: B2.1, B2.2
 
-Each one is a gate. If the cohort is split across a gate, new task group work pauses until the group is back together. See `docs/06-team-roles.md` for how catch-up is run.
+Full instructions: `students/DEx/week1/problem_statement.md` (source: `docs/_week-templates/week1.md`).
 
----
+### Week 2 - First tables and first Python
 
-## Week 1 - Understand the ask
+Theme: make your first Snowflake database and table, then write your first tiny Python scripts
 
-**Task groups:** Discovery Brief `[MILESTONE]` · The Whole System on One Page · Source Summaries and the Client Ask · Databases and Tables · Python Basics: Files and Functions
+- **Databases and Tables**: S1.1, S1.2, S1.3
+- **Python From Zero**: P0.1, P0.2, P0.3, P0.4
 
-**By the end of this week you can:** describe the client's real problem in writing, draw the whole system on one page, create a database, schema, and table in Snowflake, and read a CSV in Python with a function that does one job.
+Full instructions: `students/DEx/week2/problem_statement.md` (source: `docs/_week-templates/week2.md`).
 
-| Track | You produce |
-|---|---|
-| B | The discovery brief, the source summaries, the onboarding paragraph, and the one-page system map |
-| S | `dotset_db`, a raw schema, and the first raw MCA table |
-| P | A downloader and a reader script with real functions |
+### Week 3 - Python reads files; trust the data
 
-**Milestone:** Discovery Brief. Nobody proceeds far until the cohort agrees on what is being built.
+Theme: read real files in Python, then check the data before you trust it
 
----
+- **Python Basics: Files and Functions**: P1.1, P1.2, P1.3
+- **Data Integrity: Constraints**: S2.1, S2.2, S2.3
 
-## Week 2 - Trust the data, join the data
+Full instructions: `students/DEx/week3/problem_statement.md` (source: `docs/_week-templates/week3.md`).
 
-**Task groups:** Data Integrity: Constraints · Queries, Grouping and Joins · Type Hints and Data Validation
+### Week 4 - Queries, joins, and checking data with Python
 
-**By the end of this week you can:** find NULL and duplicate keys and say what to do about them, answer a real business question with a GROUP BY, join two sources on CIN and explain the rows that do not match, and validate a record instead of trusting it.
+Data Sprint 1 | Week 4 of 15 | Theme: answer questions with SQL joins, then check records with Python
 
-| Track | You produce |
-|---|---|
-| S | Integrity checks on CIN, status and state counts, the IBBI to MCA join and its unmatched list |
-| P | Type hints across your week 1 scripts, a hand-written validator, then the same thing in pydantic |
+- **Queries, Grouping and Joins**: S3.1, S3.2, S3.3, S3.4, S3.5
+- **Type Hints and Data Validation**: P2.1, P2.2, P2.3
 
-**Watch for:** the unmatched CIN list. Everyone finds rows that do not join, and the explanation matters more than the count.
+Full instructions: `students/DEx/week4/problem_statement.md` (source: `docs/_week-templates/week4.md`).
 
----
+### Week 5 - Missing values, messy strings
 
-## Week 3 - Missing values, messy strings
+Theme: handle what is missing and clean what is messy, so the data says what it means
 
-**Task groups:** Missing Values and Set Operations · SQL Functions: String, Date, Math
+- **Missing Values and Set Operations**: S4.1, S4.2, S4.3, S4.4
+- **SQL Functions: String, Date, Math**: S5.1, S5.2, S5.3, S5.4, S5.5
 
-**By the end of this week you can:** display missing values without inventing them, compare two monthly snapshots with EXCEPT and INTERSECT, and clean state names and parse dates safely.
+Full instructions: `students/DEx/week5/problem_statement.md` (source: `docs/_week-templates/week5.md`).
 
-| Track | You produce |
-|---|---|
-| S | The "missing stays missing" write-up, month-over-month set comparisons, cleaned states, parsed dates, recovery rates, company age |
+### Week 6 - First load, and the design begins
 
+Data Sprint 1 - Week 6 of 15 - Theme: get every file into Snowflake with counts that match, then start designing the gold layer
 
----
+- **First Snowflake Load [MILESTONE]**: P3.1, P3.2, P3.3
+- **Design Record, ERD and Architecture**: B3.1, B3.2, B3.3
+- **Pipeline Flow Diagram**: A2.1
 
-## Week 4 - First load, and the design begins
+Full instructions: `students/DEx/week6/problem_statement.md` (source: `docs/_week-templates/week6.md`).
 
-**Task groups:** First Snowflake Load `[MILESTONE]` · Design Record, ERD and Architecture · Pipeline Flow Diagram
+### Week 7 - Readable SQL and the agreed model
 
-**By the end of this week you can:** load files into Snowflake with row counts that match, draw the star schema diagram with named grain, justify the modelling choices, and draw the pipeline flow a reviewer can read.
+Theme: write SQL someone else can review, then agree the shape of the gold layer
 
-| Track | You produce |
-|---|---|
-| P | An internal stage, a file format, and every RoC file loaded with a reconciliation table |
-| B | The ERD, the grain statements, the decision record, and the pipeline flow diagram |
+- **Views and CTEs**: S6.1, S6.2, S6.3
+- **Star Schema Design [MILESTONE]**: S7.1, S7.2, S7.3
+- **Retry Logic and Context Managers**: P4.1, P4.2, P4.3
 
-**Milestone:** First Snowflake Load. Every difference between rows in the file and rows in the table is zero or explained in writing.
+Full instructions: `students/DEx/week7/problem_statement.md` (source: `docs/_week-templates/week7.md`).
 
----
+### Week 8 - Big files and cleaner tooling
 
-## Week 5 - Readable SQL and the agreed model
+Theme: read a large CSV one row at a time without loading the whole file, then make code a teammate can debug
 
-**Task groups:** Views and CTEs · Star Schema Design `[MILESTONE]` · Retry Logic and Context Managers
+- **Normalization**: S8.1, S8.2
+- **Generators and Large Files**: P5.1, P5.2, P5.3
+- **Logging and Command Line Tools**: P6.1, P6.2
 
-**By the end of this week you can:** rewrite a nested query as CTEs someone else can read, design a star schema with named grain, and write code that survives a failing network call.
+Full instructions: `students/DEx/week8/problem_statement.md` (source: `docs/_week-templates/week8.md`).
 
-| Track | You produce |
-|---|---|
-| S | Views, CTE rewrites, and the star schema proposal |
-| P | Retry with backoff, the RBI download, and context managers so files always close |
+### Week 9 - Extractors and the design sign-off
 
-**Milestone:** Star Schema Design. Table names, column names, and the grain of the fact table are agreed cohort-wide.
+Theme: get real data out of a PDF and a web page, then put what you learned back into the design
 
----
+- **Object Oriented Extractors**: P7.1, P7.2, P7.3
+- **Design Review from the Python Side [MILESTONE]**: P8.1
+- **Design Review Update**: A3.1
 
-## Week 6 - Big files and cleaner tooling
+Full instructions: `students/DEx/week9/problem_statement.md` (source: `docs/_week-templates/week9.md`).
 
-**Task groups:** Normalization · Generators and Large Files · Logging and Command Line Tools
+### Week 10 - Window functions and tests
 
-**By the end of this week you can:** explain why bronze is not normalized and gold is, stream a file too large for memory, and produce logs someone can debug from.
+Theme: Compare rows with window functions and check Python behaviour with automated tests
 
-| Track | You produce |
-|---|---|
-| S | The normalization write-up and a pivot of company status by state |
-| P | A row generator, the state frequency map that feeds silver cleaning, logging, and a CLI tool |
+- **Window Functions**: S9.1, S9.2, S9.3, S9.4
+- **Testing with pytest**: P9.1, P9.2, P9.3
 
-**Watch for:** the state frequency map. Week 10 uses it directly in the shared dbt cleaning rules.
+Full instructions: `students/DEx/week10/problem_statement.md` (source: `docs/_week-templates/week10.md`).
 
----
+### Week 11 - History that survives
 
-## Week 7 - Extractors and the design sign-off
+Data Sprint 1 - Week 11 of 15. Theme: apply a month of changes without destroying last month's truth, then write the technical brief
 
-**Task groups:** Object Oriented Extractors · Design Review from the Python Side `[MILESTONE]` · Design Review Update
+- **Slowly Changing Dimensions (SCD2) [MILESTONE]**: S10.1, S10.2, S10.3
+- **Parallel Downloads**: P10.1, P10.2
+- **Python and Snowflake Together**: P11.1, P11.2
+- **Technical Brief [MILESTONE]**: D1.1, D1.2
 
-**By the end of this week you can:** pull data out of a PDF and an HTML table, refactor extractors behind one base class, and put what you learned back into the design.
+Full instructions: `students/DEx/week11/problem_statement.md` (source: `docs/_week-templates/week11.md`).
 
-| Track | You produce |
-|---|---|
-| P | Three extractors behind one base class, and the pipeline risk paragraph |
-| B | The risk notes and the updated pipeline flow diagram with its change list |
+### Week 12 - The shared platform begins
 
-**Milestone:** Star Schema Design sign-off from the Python side. The design must survive what the Python work says can go wrong.
+Data Sprint 1 - Week 12 of 15 - Theme: stop practising separately and build the one real pipeline
 
----
+- **Stages and File Formats**: D2.1, D2.2, D2.3
+- **Bronze Loads**: D3.1, D3.2, D3.3
+- **Teach-Back: the Load Path **[MILESTONE]****: D4.1
+- **dbt Staging Models**: D5.1, D5.2, D5.3
 
-## Week 8 - Window functions and tests
+Full instructions: `students/DEx/week12/problem_statement.md` (source: `docs/_week-templates/week12.md`).
 
-**Task groups:** Window Functions · Testing with pytest
+### Week 13 - Gold layer and the monthly refresh
 
----
+Theme: build the tables the client uses, then run the monthly refresh that keeps them correct
 
-## Week 9 - History that survives
+- **Layer Contracts**: D6.1, D6.2
+- **Gold Layer with dbt**: D7.1, D7.2, D7.3
+- **The Monthly Refresh **[MILESTONE]****: P12.1, P12.2
 
-**Task groups:** Slowly Changing Dimensions (SCD2) `[MILESTONE]` · Parallel Downloads · Python and Snowflake Together · Technical Brief `[MILESTONE]`
+Full instructions: `students/DEx/week13/problem_statement.md` (source: `docs/_week-templates/week13.md`).
 
-**By the end of this week you can:** detect what changed between two monthly snapshots, apply those changes with MERGE so history is kept, answer "what was this company's status on 1 March", download files in parallel, connect Python to Snowflake without a password in the code, and write the technical brief with the platform architecture diagram.
+### Week 14 - Orchestrate, break, fix
 
-| Track | You produce |
-|---|---|
-| S | Change detection, the SCD2 MERGE, and a point-in-time query |
-| P | Parallel downloads with before and after timings, the GIL explanation, and the load verification script |
-| D | The technical brief and the platform architecture diagram |
+Theme: schedule the pipeline, then break it on purpose and prove you can find it
 
-**Milestone:** SCD2 Build. This is the client's core requirement and the hardest logic in the sprint.
+- **Quality Gates with Great Expectations**: D8.1, D8.2, D8.3
+- **Airflow Orchestration**: D9.1, D9.2
+- **Peer Review**: B4.1, B4.2
+- **Break, Fix and Postmortem**: B5.1, B5.2
 
----
+Full instructions: `students/DEx/week14/problem_statement.md` (source: `docs/_week-templates/week14.md`).
 
-## Week 10 - The shared platform begins
+### Week 15 - Present and hand over
 
-**Task groups:** Stages and File Formats · Bronze Loads · Teach-Back: the Load Path `[MILESTONE]` · dbt Staging Models
+Theme: make the work visible to the client, then hand it to a stranger
 
-**By the end of this week you can:** set up stages and file formats for four sources, load every source into bronze with file name and load timestamp, teach the load path to a teammate, and write dbt staging models with tests.
+- **Dashboard**: B6.1, B6.2
+- **Stakeholder Delivery**: B7.1, B7.2
+- **Final Architecture for Handover**: A4.1
+- **Project Handover [MILESTONE]**: B8.1, B8.2, D10.1, D10.2
 
-This is the week the work moves from `students/` into `platform/`. Read `07-platform-and-cicd-guide.md` before you touch anything there.
+Full instructions: `students/DEx/week15/problem_statement.md` (source: `docs/_week-templates/week15.md`).
 
-| Track | You produce |
-|---|---|
-| D | Stages and formats, all bronze tables with reconciliation, the teach-back, and the dbt project with staging models and tests |
-
-**Milestone:** First Snowflake Load teach-back. You are done when someone else can do it while you watch.
-
----
-
-## Week 11 - Gold layer and the monthly refresh
-
-**Task groups:** Layer Contracts · Gold Layer with dbt · The Monthly Refresh `[MILESTONE]`
-
-**By the end of this week you can:** state in writing what each layer is allowed to contain, trace every source column to its home in gold, build the dimensions and the fact table, and run a full monthly refresh end to end.
-
-| Track | You produce |
-|---|---|
-| D | The layer contract, the column mapping, `dim_date`, `dim_company` with SCD2 proof, `fct_cirp_event`, and `dim_state` |
-| P | The monthly snapshot script and a full refresh run log |
-
-**Milestone:** The Monthly Refresh. Show one company with two version rows after two months, with every step's status recorded.
-
----
-
-## Week 12 - Orchestrate, break, fix
-
-**Task groups:** Quality Gates with Great Expectations · Airflow Orchestration · Peer Review · Break, Fix and Postmortem
-
-**By the end of this week you can:** stop bad data before it reaches gold, orchestrate the monthly refresh so the gate stops the pipeline before gold is touched, review someone's work usefully, find an injected failure from evidence, and write a blameless postmortem.
-
-| Track | You produce |
-|---|---|
-| D | Expectation suites for raw and gold, the monthly refresh DAG with a failure run proving the gate stops it |
-| B | Two real reviews, the break-fix evidence trail, and the postmortem |
-
----
-
-## Week 13 - Present and hand over
-
-**Task groups:** Dashboard · Stakeholder Delivery · Final Architecture for Handover · Project Handover `[MILESTONE]`
-
-**By the end of this week you can:** build a dashboard a non-technical analyst can read, present with zero tool names in the script, draw the final architecture, and hand over a project that runs from a clean checkout.
-
-| Track | You produce |
-|---|---|
-| B | The dashboard and its plain-language labels, the presentation script and Q&A log, the final architecture, the runbook and the final README |
-| D | The clean run and the archive |
-
-**Milestone:** Project Handover. Someone follows only the runbook, on a fresh schema, and the pipeline runs.
-
----
-
-## If you fall behind
-
-Do not skip the milestone groups, and do not skip the written explanations. They are the parts that cannot be retrofitted later.
-
-Each week file ends with a cut list in priority order. Follow it honestly, then say in Discord what you cut. A week where you did six tasks well and said which four you dropped is worth more than a week of ten half-finished ones.
-
-
-**By the end of this week you can:** rank, compare to the previous row, split into deciles, pick the latest row per key, and prove your validator works with tests that run offline in CI.
-
-| Track | You produce |
-|---|---|
-| S | RANK versus DENSE_RANK, LAG month-over-month, NTILE deciles, ROW_NUMBER latest-per-company |
-| P | Validator tests, a PDF-parsing fixture, and tests wired into pull requests |

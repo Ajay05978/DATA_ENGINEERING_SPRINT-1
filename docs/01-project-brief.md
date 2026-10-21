@@ -80,9 +80,11 @@ We use four real public data sources. All four are published by Indian governmen
 
 ### 2.4 RBI Policy Rate Data
 
-**What it is.** The Reserve Bank of India, called RBI, is India's central bank. It sets the repo rate, which is the interest rate at which it lends to banks. This rate shapes borrowing costs across the whole economy. The RBI publishes its data through a portal called the Database on the Indian Economy, called DBIE, at dbie.rbi.org.in.
+**What it is.** The Reserve Bank of India, called RBI, is India's central bank. It sets the repo rate, which is the interest rate at which it lends to banks. This rate shapes borrowing costs across the whole economy. The RBI publishes its data through a portal called the Database on the Indian Economy, called DBIE, at data.rbi.org.in (older pages call it dbie.rbi.org.in).
 
 **What is in it.** Time series data. A time series is a list of values over time. Here it is the policy interest rates with the dates each rate took effect.
+
+**One thing to know about this data.** A policy rate is a step series: the file has a row only on the day the rate changed. If the file ends before the latest change (for example it stops in 2024), that is not a blocker. The last rate stays in force until a newer row appears. If a recent change is missing, add it by hand from the RBI press releases at rbi.org.in and write down the source and date.
 
 **Why it matters to the client.** This is light background context only. It lets the platform answer questions like "what was the repo rate when this company was incorporated". It is not company level data, so we use it as supporting context, not as a core part of the risk model.
 
@@ -90,7 +92,7 @@ We use four real public data sources. All four are published by Indian governmen
 
 **How to get it, step by step.**
 
-1. Open a browser and go to dbie.rbi.org.in.
+1. Open a browser and go to data.rbi.org.in.
 2. Navigate to the statistics section and find the key policy rates series.
 3. Download the file in CSV format if offered, otherwise Excel format.
 4. Save it into a folder named `data/raw/rbi/`.

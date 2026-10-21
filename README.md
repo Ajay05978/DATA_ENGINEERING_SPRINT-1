@@ -1,8 +1,8 @@
 # Data Sprint 1
 
-**India Company Risk and Verification Data Platform · 13 weeks · Snowflake, dbt, Python, Airflow, Great Expectations, Metabase**
+**India Company Risk and Verification Data Platform · 15 weeks · Snowflake, dbt, Python, Airflow, Great Expectations, Metabase**
 
-Welcome. This is the first project of the data engineering program. Over 13 weeks the cohort builds one real data platform together.
+Welcome. This is the first project of the data engineering program. Over 15 weeks the cohort builds one real data platform together.
 
 ---
 
@@ -14,13 +14,15 @@ Welcome. This is the first project of the data engineering program. Over 13 week
 | 2 | `docs/01-project-brief.md` | before week 1 begins |
 | 3 | `docs/02-tools-setup.md` | before week 1 begins, with a terminal open |
 | 4 | `docs/03-student-guide.md` | before your first commit, then whenever you forget a command |
-| 5 | `students/DEx/week1/problem_statement.md` | when week 1 opens, and every week after |
+| 5 | `docs/14-vscode-snowflake-setup-guide.md` | week 1, with tasks G0.1 to G0.4: Git, VS Code, Snowflake, your first commit |
+| 6 | `docs/15-team-project-repo-and-delivery.md` | week 1, then whenever you work on the team project or the `delivery/` folder |
+| 7 | `students/DEx/week1/problem_statement.md` | when week 1 opens, and every week after |
 
 Reference files, open them when something points you at them:
 
 | File | Open it when |
 |---|---|
-| `docs/04-week-map.md` | you want to see the whole 13 weeks at once |
+| `docs/04-week-map.md` | you want to see the whole 15 weeks at once |
 | `docs/05-task-list.md` | you want the full task list |
 | `docs/06-team-roles.md` | you want to know who reviews what and how rotations work |
 | `docs/07-platform-and-cicd-guide.md` | you are on the platform rotation this week |
@@ -52,25 +54,27 @@ Both are explained in plain language in `docs/01-project-brief.md`, section 4, a
 
 ---
 
-## The 13 weeks at a glance
+## The 15 weeks at a glance
 
-| Week | Theme | Task groups | Milestone |
+| Week | Theme | Task groups | Task IDs |
 |---|---|---|---|
-| 1 | Understand the ask, first tables, first Python | Discovery Brief · System Map · Source Summaries · Databases and Tables · Python Basics | Discovery Brief |
-| 2 | Trust the data, join the data | Data Integrity · Queries and Joins · Type Hints and Validation | - |
-| 3 | Missing values, messy strings | Missing Values · SQL Functions | - |
-| 4 | First load, and the design begins | First Snowflake Load · Design Record · Pipeline Flow Diagram | First Snowflake Load |
-| 5 | Readable SQL and the agreed model | Views and CTEs · Star Schema Design · Retry Logic | Star Schema Design |
-| 6 | Big files and cleaner tooling | Normalization · Generators · Logging and CLI | - |
-| 7 | Extractors and the design sign-off | Object Oriented Extractors · Design Review · Design Review Update | Star Schema Design sign-off |
-| 8 | Window functions and tests | Window Functions · Testing with pytest | - |
-| 9 | History that survives | SCD2 · Parallel Downloads · Python + Snowflake · Technical Brief | SCD2 Build |
-| 10 | The shared platform: stages, bronze, dbt staging | Stages · Bronze Loads · Teach-Back · dbt Staging Models | First Snowflake Load (shared) |
-| 11 | Gold layer and the monthly refresh | Layer Contracts · Gold Layer with dbt · Monthly Refresh | The Monthly Refresh |
-| 12 | Orchestrate, break, fix | Quality Gates · Airflow · Peer Review · Break and Fix | - |
-| 13 | Present and hand over | Dashboard · Stakeholder Delivery · Final Architecture · Handover | Project Handover |
+| 1 | Set up your tools and understand the ask | Set up your tools; Discovery Brief **[MILESTONE]**; Source Summaries and the Client Ask | G0.1, G0.2, G0.3, G0.4, B1.1, B1.2, A1.1, B2.1, B2.2 |
+| 2 | First tables and first Python | Databases and Tables; Python From Zero | S1.1, S1.2, S1.3, P0.1, P0.2, P0.3, P0.4 |
+| 3 | Python reads files; trust the data | Python Basics: Files and Functions; Data Integrity: Constraints | P1.1, P1.2, P1.3, S2.1, S2.2, S2.3 |
+| 4 | Queries, joins, and checking data with Python | Queries, Grouping and Joins; Type Hints and Data Validation | S3.1, S3.2, S3.3, S3.4, S3.5, P2.1, P2.2, P2.3 |
+| 5 | Missing values, messy strings | Missing Values and Set Operations; SQL Functions: String, Date, Math | S4.1, S4.2, S4.3, S4.4, S5.1, S5.2, S5.3, S5.4, S5.5 |
+| 6 | First load, and the design begins | First Snowflake Load [MILESTONE]; Design Record, ERD and Architecture; Pipeline Flow Diagram | P3.1, P3.2, P3.3, B3.1, B3.2, B3.3, A2.1 |
+| 7 | Readable SQL and the agreed model | Views and CTEs; Star Schema Design [MILESTONE]; Retry Logic and Context Managers | S6.1, S6.2, S6.3, S7.1, S7.2, S7.3, P4.1, P4.2, P4.3 |
+| 8 | Big files and cleaner tooling | Normalization; Generators and Large Files; Logging and Command Line Tools | S8.1, S8.2, P5.1, P5.2, P5.3, P6.1, P6.2 |
+| 9 | Extractors and the design sign-off | Object Oriented Extractors; Design Review from the Python Side [MILESTONE]; Design Review Update | P7.1, P7.2, P7.3, P8.1, A3.1 |
+| 10 | Window functions and tests | Window Functions; Testing with pytest | S9.1, S9.2, S9.3, S9.4, P9.1, P9.2, P9.3 |
+| 11 | History that survives | Slowly Changing Dimensions (SCD2) [MILESTONE]; Parallel Downloads; Python and Snowflake Together; Technical Brief [MILESTONE] | S10.1, S10.2, S10.3, P10.1, P10.2, P11.1, P11.2, D1.1, D1.2 |
+| 12 | The shared platform begins | Stages and File Formats; Bronze Loads; Teach-Back: the Load Path **[MILESTONE]**; dbt Staging Models | D2.1, D2.2, D2.3, D3.1, D3.2, D3.3, D4.1, D5.1, D5.2, D5.3 |
+| 13 | Gold layer and the monthly refresh | Layer Contracts; Gold Layer with dbt; The Monthly Refresh **[MILESTONE]** | D6.1, D6.2, D7.1, D7.2, D7.3, P12.1, P12.2 |
+| 14 | Orchestrate, break, fix | Quality Gates with Great Expectations; Airflow Orchestration; Peer Review; Break, Fix and Postmortem | D8.1, D8.2, D8.3, D9.1, D9.2, B4.1, B4.2, B5.1, B5.2 |
+| 15 | Present and hand over | Dashboard; Stakeholder Delivery; Final Architecture for Handover; Project Handover [MILESTONE] | B6.1, B6.2, B7.1, B7.2, A4.1, B8.1, B8.2, D10.1, D10.2 |
 
-Week by week detail, including what you can do by the end of the week: `docs/04-week-map.md`.
+Week by week detail: `docs/04-week-map.md`.
 
 ---
 

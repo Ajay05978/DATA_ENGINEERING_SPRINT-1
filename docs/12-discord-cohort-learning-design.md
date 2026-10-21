@@ -18,7 +18,7 @@ It is **calibrated wrong in five places**, all fixable with rule changes and cha
 | 1 | The XP ladder is arithmetically impossible at the top: an honest, maximal 10-week run earns roughly **1,300-1,400 XP**, but `@L4` needs 3,500 and `@L5` (labeled "Track completion milestone") needs 7,000 | §4 |
 | 2 | The freeze mechanic is loss aversion without a safety valve; the first freeze window closes exactly during the hardest onboarding weeks, which is where beginners churn | §5 |
 | 3 | The channel topology will drown at 30 students: one `#discussion` channel, one announce-only integrations feed at 60-90 posts/day, and no surface for PR review requests or data-source status | §6 |
-| 4 | The sprint **is** heavy - 105 tasks over 70 days, four tracks in parallel from week 1, eleven load-bearing tools, milestone spikes in weeks 8 and 10 - sustainable only with an explicit week 0, a default "core path", and week 8/10 relief | §7 |
+| 4 | The sprint **is** heavy - 105 tasks over 70 days, four tracks in parallel from week 1, eleven load-bearing tools, milestone spikes in weeks 12 and 14 - sustainable only with an explicit week 0, a default "core path", and week 12/14 relief | §7 |
 | 5 | The resource strategy is repo-only: good content exists in `09-resources.md` but there is no beginner video spine for Python, nothing is pre-loaded into Discord, and students will be searching at midnight | §8 |
 
 Plus one **correction** to the earlier audit: the Snowflake risk is smaller than assessed, because each student creates their own student-trial account (120 days, $400 credits). See §1 and `13-tool-cost-control-runbook.md`.
@@ -31,9 +31,9 @@ The program lead supplied two facts that change audit finding 1. This section re
 
 | Audit finding | Was | Now | Residual risk | Handled by |
 |---|---|---|---|---|
-| Finding 1 (P0): "Snowflake has no permanent free tier; a 30-day trial cannot cover a 70-day sprint; one shared account concentrates the clock and the credit burn" | P0 - will break the sprint around weeks 4-5 | **Downgraded to P1.** Each student creates their own account via the student signup link (`https://signup.snowflake.com/?trial=student`): **120 days** of access and **$400 credits**, no credit card. 120 days covers a 70-day sprint with ~7 weeks of margin. Per-student accounts also eliminate the shared-warehouse queuing and single-clock concerns | Brand-new accounts have **no cost-saving configuration** - Snowflake's defaults will not stop a student from burning the whole budget in a bad week. Every student needs the day-0 setup script | `13-tool-cost-control-runbook.md` (new) |
+| Finding 1 (P0): "Snowflake has no permanent free tier; a 30-day trial cannot cover a 70-day sprint; one shared account concentrates the clock and the credit burn" | P0 - will break the sprint around weeks 6-7 | **Downgraded to P1.** Each student creates their own account via the student signup link (`https://signup.snowflake.com/?trial=student`): **120 days** of access and **$400 credits**, no credit card. 120 days covers a 70-day sprint with ~7 weeks of margin. Per-student accounts also eliminate the shared-warehouse queuing and single-clock concerns | Brand-new accounts have **no cost-saving configuration** - Snowflake's defaults will not stop a student from burning the whole budget in a bad week. Every student needs the day-0 setup script | `13-tool-cost-control-runbook.md` (new) |
 
-Everything else in the audit stands: the broken CI workflows, the `.gitignore` contradictions, the unowned Airflow/Metabase hosting, the 403/404 government data sources, the unpinned versions, the review-bandwidth math, and the week 8/10 overload findings are all unchanged by per-student Snowflake accounts.
+Everything else in the audit stands: the broken CI workflows, the `.gitignore` contradictions, the unowned Airflow/Metabase hosting, the 403/404 government data sources, the unpinned versions, the review-bandwidth math, and the week 12/14 overload findings are all unchanged by per-student Snowflake accounts.
 
 **Verification note:** the student signup page is JavaScript-rendered and returns 404 to scripted fetches, so the 120-day/$400 terms could not be independently re-verified by tooling. They come from the program lead. Snowflake's standard non-student trial is 30 days / $400; the student variant's distinguishing feature is the longer clock. Confirm the banner text on the day accounts are created.
 
@@ -76,7 +76,7 @@ Adult learning runs on five levers, all of which the sprint already touches:
 
 1. **Attention.** Plasticity in adults is attention-gated: structural change in the cortex happens for what you attend to, while distracted exposure produces little. Practically: focused blocks with one screen and no task-switching. Task-switching costs are measurable (commonly cited at 20+ minutes to fully refocus after an interruption) and every context switch during a focused block deletes part of the encoding.
 2. **Retrieval, not review.** Re-reading notes feels like learning and produces almost nothing; pulling knowledge out of memory from a prompt is what strengthens the trace (the testing effect, Roediger & Karpicke 2006). The sprint's Day-3 recap and Day-7 recall are retrieval; a student who "reviews" by re-reading Day 1 notes on Day 3 has converted the exercise back into review.
-3. **Spacing.** Memory consolidates between exposures, and expanding intervals (1 day → 3 days → 7 days) beat equal intervals and beat massed practice (Cepeda et al. 2006). The 1-3-7 loop is a legitimate expanding schedule.
+3. **Spacing.** Memory consolidates between exposures, and expanding intervals (1 day, 3 days, 7 days) beat equal intervals and beat massed practice (Cepeda et al. 2006). The 1-3-7 loop is a legitimate expanding schedule.
 4. **Sleep.** Consolidation of the day's encoding happens during sleep; an all-nighter before a deadline deletes most of the previous day's learning. This is the cheapest performance lever in the entire program and belongs in the rules channel.
 5. **Repeated use in varied contexts.** Myelination of a circuit comes from repeated, correct use - which is why the sprint's four interleaved tracks (SQL, Python, platform, delivery) beat "finish all SQL, then all Python": the same skill resurfaces in a different context each week, which is interleaving, and interleaving produces better retention at the cost of feeling harder (Rohrer & Taylor 2007).
 
@@ -86,13 +86,13 @@ The one-sentence version for students: **attend fully, retrieve often, space it 
 
 | Cohort mechanic | Cognitive-science principle | Verdict | Tune |
 |---|---|---|---|
-| 1-3-7 loop (learn → recap → mastery) | Spacing effect + testing effect; 1→3→7 is a proper expanding interval set | **Keep** | Add a Day-30 touchpoint: the week-10 review should explicitly re-test week 1-3 concepts from memory |
+| 1-3-7 loop (learn, recap, mastery) | Spacing effect + testing effect; 1-3-7 is a proper expanding interval set | **Keep** | Add a Day-30 touchpoint: the week-14 review should explicitly re-test weeks 1-3 concepts from memory |
 | Day-1 handwritten notes | Encoding effort; longhand note-taking outperforms laptop note-taking for conceptual recall (Mueller & Oppenheimer 2014, with later partial replications - directionally solid, effect size modest) | **Keep** | Tell students notes are only allowed to be *prompts*, not transcripts - notes that contain everything prevent retrieval |
 | Day-3 recap photo upload | Retrieval at ~48h, near the steep part of the forgetting curve | **Keep** | The recap must be written **from memory first**, then checked against Day-1 notes - otherwise it is copying, not retrieval |
 | Day-7 live recall in voice | Generation effect + teaching effect; the strongest consolidation event in the week | **Keep** | Make cold-calling safe: opt-in rotation, no ranking, no leaderboard of who answered best - test anxiety impairs retrieval (Yerkes-Dodson) |
-| Daily streak post | Habit formation: stable cue (same channel, same time) → routine → reward (XP + visible streak) | **Keep** | Require a two-line format ("yesterday I did / today I will") - implementation intentions, not one-word posts |
+| Daily streak post | Habit formation: stable cue (same channel, same time), routine, reward (XP + visible streak) | **Keep** | Require a two-line format ("yesterday I did / today I will") - implementation intentions, not one-word posts |
 | Four interleaved tracks | Interleaving beats blocked practice for long-term retention but feels worse during learning | **Keep** | Say this out loud in week 1: "this will feel harder than one-subject-at-a-time, and that is the method working" - otherwise students conclude they are failing |
-| Messy real data, week-10 failure injection | Desirable difficulties (Bjork): conditions that slow learning during acquisition and double retention | **Keep** | This is the sprint's main differentiator from tutorial-following; do not smooth it away when students complain |
+| Messy real data, week-14 failure injection | Desirable difficulties (Bjork): conditions that slow learning during acquisition and double retention | **Keep** | This is the sprint's main differentiator from tutorial-following; do not smooth it away when students complain |
 | "Why" grading + say-it-out-loud defense | Elaborative interrogation + retrieval in front of others | **Keep** | Already correctly designed in `00-START-HERE.md` §8 |
 | Per-week cut lists ("if you are short on time, cut in this order") | Cognitive-load management; protects intrinsic load by shedding extraneous scope | **Keep, promote** | Make the cut list the *default* path, not the emergency path (§7.4) |
 | XP + level roles | Progress principle (Amabile): visible small wins are the strongest motivator in knowledge work | **Keep** | Fix the arithmetic (§4); keep XP non-material - never exchangeable for anything, to avoid the over-justification effect (extrinsic rewards that feel controlling erode intrinsic motivation; Deci & Ryan) |
@@ -194,7 +194,7 @@ All fixes use free Discord features. Discord itself has no meaningful free-tier 
 | 6.2 | `#integrations` (announce-only feed) | 60-90 webhook posts/day bury everything, including the milestones | Keep announce-only, but add a pinned **weekly merge digest** (a free GitHub Action posts "this week: 214 merges, top reviewers, milestone status" every Sunday). Humans read the digest; the bot reads the feed |
 | 6.3 | No surface for PR review requests | Reviewing is a repo requirement, but there is nowhere to ask "review my PR #142" - requests will leak into `#discussion` | Add a review-request **post format in the forum** (or its own sub-channel): `[task ID] [PR link] [what to check]`. Reviewers pick from the board - this also distributes the review load the audit's finding 8 flagged |
 | 6.4 | No wins channel | The progress principle needs visible small wins; `#community-updates` is official-only | Add `#wins` (text, 0 XP): first green CI, first merged PR, the SCD2 proof. Leads seed it in week 1 so students know it is for them |
-| 6.5 | No data-source status channel | The audit proved government sources 403/404 intermittently; in week 5 every student will rediscover this alone, at night | Add `#data-source-status` (text, 0 XP) with a pinned status table: source / works / blocked / workaround / mirror link. One student's 403 becomes the whole cohort's known issue within minutes |
+| 6.5 | No data-source status channel | The audit proved government sources 403/404 intermittently; in weeks 8-9 every student will rediscover this alone, at night | Add `#data-source-status` (text, 0 XP) with a pinned status table: source / works / blocked / workaround / mirror link. One student's 403 becomes the whole cohort's known issue within minutes |
 | 6.6 | `#1-3-7-recap` unstructured photos | 30 photos/week of handwritten notes are unsearchable and unverifiable | Filename convention `DE##_W#_D3_topic`, plus a pinned rubric: legible, dated, from memory, at least 5 lines. Spot-check ~25% (not all 30) - the recap's value is the retrieval act, which cannot be faked by the uploader without defeating itself |
 | 6.7 | Voice calls unscheduled/uncaptured | Day-7 mastery depends on attendance; there is no visible time or record | Post the weekly office-hours time in `#announcements`; record calls (with consent) and index them in `#youtube-videos` with a 3-line summary each |
 | 6.8 | XP awarding machinery unspecified | XP is the accountability backbone; if it silently stops, the whole status system loses credibility mid-sprint | Decide **before week 1**, in this order of preference: (a) a leveling bot whose XP module is on a free tier (verify current terms at setup - leveling modules are commonly premium, e.g., MEE6's), (b) a self-hosted open-source leveling bot on a Team Lead's machine ($0), or (c) cleanest: no always-on bot at all - a scheduled GitHub Action + Discord webhook that computes XP from merged PRs and streak/recap posts and updates a leaderboard message. Whatever is chosen: one named owner in `06-team-roles.md` terms |
@@ -211,8 +211,8 @@ All fixes use free Discord features. Discord itself has no meaningful free-tier 
 |---|---|---|
 | Tasks per student | **105** (10, 11, 12, 13, 10, 8, 8, 11, 10, 14 by week) | week templates |
 | Tracks running in parallel | 4, from week 1 | `00-START-HERE.md` §3 |
-| Load-bearing tools | **11**: Git/GitHub, Python, SQL, SQL Server (local, weeks 2-4), Snowflake (weeks 7+), pytest, dbt, Great Expectations, Airflow, Docker, Metabase | `11-tools-and-technology.md` |
-| Milestone gates | Discovery Brief (W1), First Load (W3), Star Schema Design (W4, sign-off W6), SCD2 Build (W7 SQL / W9 dbt), First Snowflake Load (W8), Handover (W10) | `04-week-map.md` |
+| Load-bearing tools | **11**: Git/GitHub, Python, SQL, SQL Server (local, weeks 2-4), Snowflake (weeks 6+), pytest, dbt (dbt Core), Great Expectations, Airflow, Docker, Metabase | `11-tools-and-technology.md` |
+| Milestone gates | Discovery Brief (W1), First Load (W6), Star Schema Design (W7, sign-off W9), SCD2 Build (W11 SQL / W13 dbt), First Snowflake Load (W12), Handover (W15) | `04-week-map.md` |
 | Process rituals per student per week | ~5-7 commits + PRs, 1+ review, 5-7 streak posts, 1-2 recap photos, 1 voice call | repo rules + server rules |
 
 ### 7.2 Estimated hours (engineering estimate, not a measurement)
@@ -226,27 +226,27 @@ Beginners average roughly 1.5-2.5 hours per task (Python and platform tasks at t
 | Week | Tasks | New things introduced | Load | Verdict |
 |---|---|---|---|---|
 | 1 | 10 | Git, fork/PR flow, Discord rituals, discovery writing - **all at once** | Process spike | **Danger zone** - the highest beginner-quit window in the program |
-| 2 | 11 | SQL ramp + Python ramp | Heavy but focused | Watch |
-| 3 | 12 | First end-to-end load, milestone | All tools come together first time | Watch |
-| 4 | 13 | Peak task count so far + star schema milestone | Conceptual + volume peak | Watch |
-| 5 | 10 | Three new Python patterns (generators, logging/CLI, OOP) + the 403-blocked-source risk | Conceptually dense | Watch |
-| 6 | 8 | pytest only | **Lightest week** | Green - use it (see §7.4 fix 5) |
-| 7 | 8 | Snowflake connector, concurrency, first real Snowflake usage | Tool switch | Watch |
-| 8 | 11 | **dbt + the move into the shared `platform/` zone + two milestones** | Spike | **Danger zone** |
-| 9 | 10 | dbt marts + SCD2 + Great Expectations + Kimball | Densest concepts, but no new tool | Watch |
-| 10 | 14 | **Airflow + Metabase + two milestones + stakeholder delivery** | Highest task count + two new tools | **Danger zone** |
+| 2-5 | 11 | SQL ramp + Python ramp | Heavy but focused | Watch |
+| 6 | 12 | First end-to-end load, milestone | All tools come together first time | Watch |
+| 7 | 13 | Peak task count so far + star schema milestone | Conceptual + volume peak | Watch |
+| 8-9 | 10 | Three new Python patterns (generators, logging/CLI, OOP) + the 403-blocked-source risk | Conceptually dense | Watch |
+| 10 | 8 | pytest only | **Lightest week** | Green - use it (see §7.4 fix 5) |
+| 11 | 8 | Snowflake connector, concurrency, first real Snowflake usage | Tool switch | Watch |
+| 12 | 11 | **dbt + the move into the shared `platform/` zone + two milestones** | Spike | **Danger zone** |
+| 13 | 10 | dbt marts + SCD2 + Great Expectations + Kimball | Densest concepts, but no new tool | Watch |
+| 14-15 | 14 | **Airflow + Metabase + two milestones + stakeholder delivery** | Highest task count + two new tools | **Danger zone** |
 
 ### 7.4 Pacing adjustments (concrete, mostly cost-free)
 
 1. **Add week 0 (2-3 days before week 1).** Accounts created, a no-stakes git drill (fork, 5 commits, 1 PR to a sandbox repo), Discord rituals rehearsed, Python warmup started. This removes the week-1 process spike - week 1's actual content (discovery writing) is then learnable. This is the single highest-return fix in this document, and it costs two days.
 2. **Make the cut list the default, not the emergency.** Publish two paths openly: **core path** (~12 hours/week, reaches every milestone, uses each week's cut list) and **full path** (~20 hours/week). Students choose weekly, switching is normal, and neither is shameful. Autonomy and competence - the two needs self-determination theory says motivation is built from - both require the choice to be real.
-3. **Week 8 relief.** The audit already requires fixing the broken CI before week 8; extend that work one step: leads merge a working `platform/dbt` skeleton before the week opens, so students write models and tests, not scaffold and debug tooling, during the week they also switch zones and hit two milestones.
-4. **Week 10 relief.** Airflow and Metabase both arriving in the final week, with two milestones, is the worst overload in the sprint. Either (a) leads provide pre-running local containers (this is the same fix as audit P0-4) so students write the DAG and the dashboard, not the infrastructure; or (b) move B6 Metabase to week 9 as a preview. Failing both: convert B5 break-fix into a lead-run failure demo + student postmortem.
-5. **Label week 6 "catch-up week."** It is already the lightest (8 tasks, one new skill). Officially frame the surplus as time to finish weeks 4-5 stragglers. Framed as bonus time, it is a gift; framed as remedial time, it is an admission of failure. Same content, different dropout rate.
+3. **Week 12 relief.** The audit already requires fixing the broken CI before week 12; extend that work one step: leads merge a working `platform/dbt` skeleton before the week opens, so students write models and tests, not scaffold and debug tooling, during the week they also switch zones and hit two milestones.
+4. **Week 14 relief.** Airflow and Metabase both arriving in the final weeks, with two milestones, is the worst overload in the sprint. Either (a) leads provide pre-running local containers (this is the same fix as audit P0-4) so students write the DAG and the dashboard, not the infrastructure; or (b) move B6 Metabase to week 13 as a preview. Failing both: convert B5 break-fix into a lead-run failure demo + student postmortem.
+5. **Label week 10 "catch-up week."** It is already the lightest (8 tasks, one new skill). Officially frame the surplus as time to finish weeks 8-9 stragglers. Framed as bonus time, it is a gift; framed as remedial time, it is an admission of failure. Same content, different dropout rate.
 
 ### 7.5 What NOT to cut (protects the psychology)
 
-The messy real data, the "why" questions, the review requirement, the 1-3-7 loop, and the week-10 failure injection. These five are the desirable difficulties the whole design is built on; every one of them feels like friction in week N and is the reason graduates can interview credibly in week 11.
+The messy real data, the "why" questions, the review requirement, the 1-3-7 loop, and the week-14 failure injection. These five are the desirable difficulties the whole design is built on; every one of them feels like friction in week N and is the reason graduates can interview credibly in week 16.
 
 ---
 
@@ -256,9 +256,9 @@ The messy real data, the "why" questions, the review requirement, the 1-3-7 loop
 
 The repo is not actually resource-empty: `09-resources.md` is a genuinely good, week-mapped, station-referenced list. But three gaps remain:
 
-1. **Python has no beginner video spine.** SQL has one (the Kudvenkat course); Python's entries are all docs and articles. Absolute beginners learn code better watch-first than read-first - a docs-only Python path in weeks 2-5 is the steepest avoidable curve in the sprint. This is the "apart from SQL there are no Python resources" feeling, and it is correct as felt even though a curated Python *reading* list exists.
+1. **Python has no beginner video spine.** SQL has one (the Kudvenkat course); Python's entries are all docs and articles. Absolute beginners learn code better watch-first than read-first - a docs-only Python path in weeks 2-7 is the steepest avoidable curve in the sprint. This is the "apart from SQL there are no Python resources" feeling, and it is correct as felt even though a curated Python *reading* list exists.
 2. **The list lives in the repo, not in Discord.** Students live in Discord; the resources are a `git pull` and four clicks away, and nothing is pinned in `#learning-resources` week by week.
-3. **The platform tools have no resources at all** - dbt has dbt Learn listed (good), but Airflow, Docker, Metabase, and Great Expectations have no curated entry, and those all land in weeks 8-10, when time pressure is worst.
+3. **The platform tools have no resources at all** - dbt has dbt Learn listed (good), but Airflow, Docker, Metabase, and Great Expectations have no curated entry, and those all land in weeks 12-15, when time pressure is worst.
 
 **Answer to "can we learn this from free public resources?": yes - every single topic in this sprint has a free, high-quality resource.** The risk is not availability; it is **search-time waste and quality variance at 11pm before a deadline**. A beginner searching "learn airflow" gets a mix of vendor marketing, outdated Airflow 1.x tutorials, and paid course ads. Pre-loading the pack below removes that entirely.
 
@@ -271,21 +271,21 @@ One pinned message per week, posted each Monday with the mission drop: "Week N p
 | Week 0 | Git survival | GitHub Skills - "Introduction to GitHub" (skills.github.com) | Whole course | ~1 h |
 | Week 0 | Git mental model | Learn Git Branching (learngitbranching.js.org) | Levels 1-3 | ~2 h |
 | Week 0 | Fork/PR loop | freeCodeCamp "Git and GitHub for Beginners" (YouTube) | First 45 minutes only | 45 m |
-| Weeks 1-5 | **Python spine - pick one and finish it** | **CS50P - Harvard's Introduction to Programming with Python** (free on YouTube/edX audit) | Lectures 0-6 roughly track P1-P4 territory | ~2 h/week |
+| Weeks 2-7 | **Python spine - pick one and finish it** | **CS50P - Harvard's Introduction to Programming with Python** (free on YouTube/edX audit) | Lectures 0-6 roughly track P1-P4 territory | ~2 h/week |
 | or | Python spine (gentler) | Python for Everybody - py4e.com (Dr. Chuck) | Chapters 1-5, 10 | ~2 h/week |
 | or | Python spine (faster) | Corey Schafer's Python Beginner Playlist (YouTube) | First ~10 videos | ~2 h/week |
-| Weeks 1-2 | Zero-setup Python fallback | Kaggle Learn "Python" micro-course (browser sandbox) | For students whose local install is still broken - never block on environment | ~4 h |
-| Weeks 2-3 | Files, CSV, functions | Automate the Boring Stuff (automatetheboringstuff.com, free online) | Chapters 6-9 | ~4 h |
-| Week 5 | OOP | Corey Schafer OOP series (YouTube) | Videos 1-4 | ~1 h |
-| Week 6 | pytest | freeCodeCamp pytest course (YouTube) **or** the Real Python article already in `09-resources.md` | First half | ~2 h |
-| Week 7 | Snowflake connector | Snowflake University (learn.snowflake.com - free) Python connector hands-on lab | Lab only | ~1 h |
-| Weeks 7-8 | Snowflake fundamentals + **cost sense** | Snowflake University Hands-on Essentials badge courses + the resource-monitor course | Assign alongside the day-0 runbook in `13-tool-cost-control-runbook.md` | ~2 h |
-| Week 8 | dbt | dbt Learn - "dbt Fundamentals" (free; already in `09-resources.md`) | Modules 1-3 for week 8; snapshots module for week 9 | ~3 h |
-| Week 9 | Great Expectations | GX docs "Getting Started" tutorial | Quickstart only | ~1 h |
-| Week 9 | Kimball | The two Kimball articles already in `09-resources.md` | Both | ~1 h |
-| Week 10 | Airflow | Airflow docs "Core Concepts" + Astronomer's free learning guides/videos (free content - **do not** sign up for a paid deployment) | Concepts + one example DAG | ~2 h |
-| Week 10 | Docker | Docker's official "Get Started" workshop + Play with Docker sandbox | First two sections | ~1.5 h |
-| Week 10 | Metabase | Metabase "Learn" + docs Getting Started (OSS edition) | Getting started + basics tour | ~1 h |
+| Weeks 2-3 | Zero-setup Python fallback | Kaggle Learn "Python" micro-course (browser sandbox) | For students whose local install is still broken - never block on environment | ~4 h |
+| Weeks 3-4 | Files, CSV, functions | Automate the Boring Stuff (automatetheboringstuff.com, free online) | Chapters 6-9 | ~4 h |
+| Week 9 | OOP | Corey Schafer OOP series (YouTube) | Videos 1-4 | ~1 h |
+| Week 10 | pytest | freeCodeCamp pytest course (YouTube) **or** the Real Python article already in `09-resources.md` | First half | ~2 h |
+| Week 11 | Snowflake connector | Snowflake University (learn.snowflake.com - free) Python connector hands-on lab | Lab only | ~1 h |
+| Weeks 11-12 | Snowflake fundamentals + **cost sense** | Snowflake University Hands-on Essentials badge courses + the resource-monitor course | Assign alongside the day-0 runbook in `13-tool-cost-control-runbook.md` | ~2 h |
+| Week 12 | dbt | dbt Learn - "dbt Fundamentals" (free; already in `09-resources.md`). This cohort uses dbt Core; dbt Projects on Snowflake is an optional extra | Modules 1-3 for week 12; snapshots module for week 13 | ~3 h |
+| Week 13 | Great Expectations | GX docs "Getting Started" tutorial | Quickstart only | ~1 h |
+| Week 13 | Kimball | The two Kimball articles already in `09-resources.md` | Both | ~1 h |
+| Week 14 | Airflow | Airflow docs "Core Concepts" + Astronomer's free learning guides/videos (free content - **do not** sign up for a paid deployment) | Concepts + one example DAG | ~2 h |
+| Week 14 | Docker | Docker's official "Get Started" workshop + Play with Docker sandbox | First two sections | ~1.5 h |
+| Week 15 | Metabase | Metabase "Learn" + docs Getting Started (OSS edition) | Getting started + basics tour | ~1 h |
 
 ### 8.3 Maintenance rules (cheap, and they prevent the 11pm panic)
 
@@ -302,7 +302,7 @@ One pinned message per week, posted each Monday with the mission drop: "Week N p
 - [ ] XP machinery chosen and owned (§6.8 - bot, self-hosted bot, or GitHub-Action-computed XP; one named owner)
 - [ ] Core path vs full path published (§7.4 fix 2)
 - [ ] Week 0 dates set (§7.4 fix 1)
-- [ ] Week 10 relief option chosen (§7.4 fix 4)
+- [ ] Week 14 relief option chosen (§7.4 fix 4)
 
 **Discord build-out:**
 - [ ] `#discussion` converted to a forum channel; review-request post format published
@@ -316,7 +316,9 @@ One pinned message per week, posted each Monday with the mission drop: "Week N p
 **Repo and tools (from the audit - still outstanding):**
 - [ ] CI workflows repaired (audit P0-2), `.gitignore` fixed (audit P0-3), Airflow/Metabase plan owned (audit P0-4)
 - [ ] `13-tool-cost-control-runbook.md` linked in `#learning-resources` and assigned as week-1 reading alongside Snowflake signup
-- [ ] Week 0-10 resource packs pinned (§8.2)
+- [ ] Every student follows `docs/14-vscode-snowflake-setup-guide.md` for VS Code, Git and Snowflake setup; check that it is current before week 1
+- [ ] Team Leaders read `docs/15-team-project-repo-and-delivery.md` (team project repo and the `delivery/` folder, updated only by the team leader)
+- [ ] Week 0-15 resource packs pinned (§8.2)
 
 ---
 
@@ -325,7 +327,7 @@ One pinned message per week, posted each Monday with the mission drop: "Week N p
 - **Snowflake student trial (120 days / $400 / no card):** provided by the program lead via `https://signup.snowflake.com/?trial=student`; the page is JavaScript-rendered and returned 404 to scripted fetches on 8 Sep 2026 - confirm at signup. Standard trial: 30 days / $400. Full cost-control detail: `13-tool-cost-control-runbook.md` §9.
 - **Snowflake docs (fetched 8 Sep 2026):** "Cost controls for warehouses" (statement timeouts settable at account/user/session/warehouse, lowest non-zero wins; auto-suspend/auto-resume pairing; resource monitors suspend at thresholds and cover neither cloud services nor serverless features; `SHOW WAREHOUSES` hygiene queries). "Working with resource monitors" (ACCOUNTADMIN creation, credit quota + frequency, trigger thresholds and actions). ACCOUNT_USAGE views (`METERING_HISTORY`, `WAREHOUSE_METERING_HISTORY`, `QUERY_HISTORY`).
 - **Free-tier facts carried over from `CURRICULUM-AUDIT.md` Appendix B (verified 2 Sep 2026):** GitHub Actions free on public repos; branch protection public-repo-only on Free; dbt Learn Fundamentals free; Snowflake University free; Metabase OSS free / Cloud ≈ $100/mo after 14-day trial; Astronomer no permanent free tier; Docker Desktop free for personal/education use.
-- **dbt Cloud free Developer plan (1 seat):** verified 8 Sep 2026 - relevant only if anyone opts into Cloud; the repo uses dbt Core.
+- **dbt Cloud free Developer plan (1 seat):** verified 8 Sep 2026 - relevant only if anyone opts into Cloud; the cohort default is dbt Core, and dbt Projects on Snowflake is an optional extra.
 - **Cognitive-science claims (standard, replicated literature; deliberately no pop-neuroscience):** spacing effect and expanding intervals (Cepeda et al. 2006); testing effect (Roediger & Karpicke 2006); desirable difficulties (Bjork); interleaving (Rohrer & Taylor 2007); longhand note-taking (Mueller & Oppenheimer 2014, partial replications since - stated as directional); progress principle (Amabile); self-determination theory and the over-justification effect (Deci & Ryan); loss aversion (Kahneman & Tversky); Yerkes-Dodson arousal/performance. Task-switching cost (Gloria Mark's research) cited as commonly-measured, not exact.
 - **Not independently verified (flagged for lead verification at setup):** current free-tier terms of specific Discord XP bots (MEE6/Arcane-class leveling modules - pricing changes frequently); this document's §6.8 deliberately offers a bot-free option so the program does not depend on any bot's pricing.
 
@@ -336,4 +338,3 @@ One pinned message per week, posted each Monday with the mission drop: "Week N p
 - Task counts were counted from the week templates, which matched all 300 student files at audit time (2 Sep 2026).
 - Hours estimates (§7.2) are engineering estimates, not measurements. Calibrate after week 2 using actual PR timestamps; the weekly per-student PR digest (§5.3 fix 5) produces exactly this data.
 - This document and `13-tool-cost-control-runbook.md` are the only files added; nothing existing was modified. Every recommendation here is a rule change, a channel change, or a new-file change - none requires editing the existing curriculum.
-
