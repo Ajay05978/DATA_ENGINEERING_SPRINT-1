@@ -3,7 +3,7 @@
 **Prepared for:** every student, on the day they create their Snowflake account (week 1 setup). Team Leads should read §7 before the sprint starts.
 **Date:** 8 September 2026.
 **Ground rule honored:** read-only. This is a new file; nothing existing was modified.
-**Related:** `02-tools-setup.md` (account creation), `12-discord-cohort-learning-design.md` (learning design), `CURRICULUM-AUDIT.md` (the original Snowflake risk finding, corrected - see below).
+**Related:** `02-tools-setup.md` (account creation), `docs/14-vscode-snowflake-setup-guide.md` (VS Code, Git and Snowflake setup), `docs/15-team-project-repo-and-delivery.md` (team project repo and the `delivery/` folder, updated only by the team leader), `12-discord-cohort-learning-design.md` (learning design), `CURRICULUM-AUDIT.md` (the original Snowflake risk finding, corrected - see below).
 
 ---
 
@@ -68,7 +68,7 @@ Keep the default (Standard/Gen1) compute. Gen2 warehouses bill roughly **1.35× 
 
 ## 3. Day-0 setup - the ten-minute script
 
-**Where:** Snowsight → Worksheets → new worksheet → paste → **Run All**, top to bottom. Replace `<YOUR_USERNAME>` with your login (uppercased, in double quotes if it contains special characters). You hold `ACCOUNTADMIN` because you are the account's only user.
+**Where:** Snowsight → Projects → Workspaces → new SQL file → paste → **Run All**, top to bottom. Replace `<YOUR_USERNAME>` with your login (uppercased, in double quotes if it contains special characters). You hold `ACCOUNTADMIN` because you are the account's only user. The VS Code, Git and Snowflake setup steps are in `docs/14-vscode-snowflake-setup-guide.md`.
 
 ```sql
 -- 0. Make sure you are the admin (you are, on a trial account)
@@ -117,11 +117,11 @@ ALTER WAREHOUSE SPRINT_WH SET RESOURCE_MONITOR = SPRINT_BUDGET;
 | Setting | What it prevents |
 |---|---|
 | `STATEMENT_TIMEOUT_IN_SECONDS = 900` | A cross-join or `SELECT *` written by a tired student at 1am runs 15 minutes max instead of all night. Settable at account/user/session/warehouse level; when set at more than one level, the lowest non-zero value wins - you set both, so you are safe everywhere. |
-| `AUTO_SUSPEND = 60` + `AUTO_RESUME = TRUE` | The classic beginner loss: leaving a worksheet tab open with auto-suspend disabled. Snowflake's own best-practice pairing. |
+| `AUTO_SUSPEND = 60` + `AUTO_RESUME = TRUE` | The classic beginner loss: leaving a Workspace tab open with auto-suspend disabled. Snowflake's own best-practice pairing. |
 | `WAREHOUSE_SIZE = XSMALL` | Every task in this sprint (bronze loads of MB-scale files, dbt models on thousands of rows) fits in XS with room to spare. Slow means your SQL needs work - which is the lesson, not a hardware problem. |
 | `SPRINT_BUDGET` monitor at 75/100 | Even if everything else fails, the warehouse physically stops at 75 credits in a month. `SUSPEND` lets pending statements finish; `SUSPEND_IMMEDIATE` kills them. You get an email/notification only if you also configure notifications - skip that; the weekly check in §4 replaces it. |
 
-**Verify it worked** (run in the same worksheet):
+**Verify it worked** (run in the same Workspace):
 
 ```sql
 SHOW WAREHOUSES;              -- exactly one row: SPRINT_WH, size X-Small,
@@ -136,7 +136,7 @@ Two honest limitations, so nothing surprises you later: a monitor suspends the *
 
 ## 4. The weekly 30-second check
 
-Save this as a worksheet named `BUDGET CHECK` and run it every Monday (with the mission drop). It reads only `ACCOUNT_USAGE` views - free to query, and they cost no warehouse credits to speak of at this size.
+Save this as a SQL file named `BUDGET CHECK` in a Workspace and run it every Monday (with the mission drop). It reads only `ACCOUNT_USAGE` views - free to query, and they cost no warehouse credits to speak of at this size.
 
 ```sql
 -- Credits burned in the last 7 days, split by type.
@@ -203,7 +203,7 @@ Notes:
 
 **If day 120 arrives first:** the account is disabled (Snowflake's published trial behavior: a grace period, then removal). With week-1 signup, day 120 lands ~7 weeks **after** the sprint ends - outside the program entirely. Do not cycle new trial accounts to extend free usage; that violates Snowflake's terms and teaches the wrong professional habit. One account per student; treat day 120 as the end.
 
-**The exit plan is already the curriculum.** Everything needed to rebuild the platform lives in git: extractors, DDL, dbt models, and the week-10 runbook - the handover milestone literally rehearses a clean rebuild on a fresh schema. The only things not in git are the raw source files (banned by repo rule 5), which stay on your machine. **A fresh account + the repo + your local raw files = a full bronze reload in about an hour.** For portfolios after the sprint: the repo, screenshots, and the generated dbt docs site outlive the account and are what interviewers actually look at.
+**The exit plan is already the curriculum.** Everything needed to rebuild the platform lives in git: extractors, DDL, dbt models, and the week 15 runbook - the handover milestone literally rehearses a clean rebuild on a fresh schema. The only things not in git are the raw source files (banned by repo rule 5), which stay on your machine. **A fresh account + the repo + your local raw files = a full bronze reload in about an hour.** For portfolios after the sprint: the repo, screenshots, and the generated dbt docs site outlive the account and are what interviewers actually look at.
 
 ---
 
@@ -217,13 +217,13 @@ Snowflake is the only tool in this project with a metered trial behind it. Every
 | **GitHub Student Pack** (optional) | Free for verified students; includes Pro perks while enrolled | Nothing - it is free | Apply at education.github.com with college ID; no card required |
 | **Python + venv** | Free, open-source | Nothing | Pin versions (audit finding 7) so pip never surprises you |
 | **pytest, tenacity, pandas, pdfplumber, bs4** | Free libraries | Nothing | - |
-| **dbt Core** | Free, open-source, runs locally against your Snowflake account | Nothing | This is why the repo uses Core, not Cloud |
+| **dbt Core** | Free, open-source, runs locally against your Snowflake account | Nothing | This is why the repo uses Core, not Cloud. dbt Core is the cohort default; dbt Projects on Snowflake (inside a Snowsight Workspace) is an optional extra only |
 | **dbt Cloud** (optional - not required by this repo) | Free Developer plan (1 seat, monthly build allowance) | Starting a **Team/Enterprise trial**, which converts to a paid subscription | If you use it at all, pick the free **Developer** plan explicitly at signup; never enter a card |
 | **Great Expectations (GX Core)** | Free library | GX Cloud (managed) - not needed | Local library only |
-| **SQL Server Express** (weeks 2-4 SQL practice) | Free local edition (compute and 10 GB database caps - far above sprint needs) | Azure SQL / any hosted SQL | Local install only |
+| **SQL Server Express** (weeks 3-6 SQL practice) | Free local edition (compute and 10 GB database caps - far above sprint needs) | Azure SQL / any hosted SQL | Local install only |
 | **Docker Desktop** | Free for personal and educational use (paid only for larger organizations) | Corporate use at a company above the size threshold - not students | If its license ever concerns you: Podman, Colima, or Rancher Desktop are free drop-ins |
 | **Airflow** | Free, open-source; run via the official Docker Compose stack locally | **Astronomer or any managed Airflow** - no permanent free tier, deployments ≈ $0.35/hour | Never sign up for a managed deployment. Local Compose only. Budget ~4-8 GB RAM for the stack; close other apps |
-| **Metabase** | **Open Source edition** is free, self-hosted, unlimited users | **Metabase Cloud** - Starter is ≈ $100/month after a 14-day trial | Never start the Cloud trial. Week 10's dashboard runs on the local OSS edition (jar or container) |
+| **Metabase** | **Open Source edition** is free, self-hosted, unlimited users | **Metabase Cloud** - Starter is ≈ $100/month after a 14-day trial | Never start the Cloud trial. Week 15's dashboard runs on the local OSS edition (jar or container) |
 | **VS Code, Git** | Free | Nothing | - |
 | **Discord + XP machinery** | Free at any cohort scale; XP computable by a free GitHub Action + webhooks (see `12-discord-cohort-learning-design.md` §6.8) | A premium XP bot tier, or a hosted custom bot | Use a free-tier bot, a self-hosted open-source bot on a Lead's machine, or the bot-free Action approach |
 | **Snowflake University, dbt Learn, all resources in doc 12 §8** | Free | Nothing | Verify links weekly (doc 12 §8.3) |
@@ -242,7 +242,7 @@ Snowflake is the only tool in this project with a metered trial behind it. Every
 - [ ] Expiry date (signup + 120 days) written in my notes file
 
 **Every Monday:**
-- [ ] `BUDGET CHECK` worksheet run (§4) - under ~15 credits/week, all compute
+- [ ] `BUDGET CHECK` Workspace file run (§4) - under ~15 credits/week, all compute
 
 **Always:**
 - [ ] Never-do list (§5) read once - especially: no card, no resize, no serverless features
@@ -267,6 +267,5 @@ Snowflake is the only tool in this project with a metered trial behind it. Every
 
 - One account per student, created at week-1 setup per `02-tools-setup.md`; cohort 15-30.
 - Sprint data volumes are MB-scale (four Indian government sources, monthly snapshots). The credit math in §2 and the monitor quota in §3 assume this; anyone loading GB-scale data should revisit §2.1 before touching anything else.
-- The weekly check's "under ~15 credits/week" healthy reading assumes the week 1-6 pattern (SQL practice is on local SQL Server; Snowflake becomes load-bearing from week 7's connector and week 8's bronze loads). Weeks 8-10 running dbt and monthly refreshes may legitimately push higher - that is why the monitor is 100/month, not 15/week.
+- The weekly check's "under ~15 credits/week" healthy reading assumes the week 1-6 pattern (SQL practice is on local SQL Server; Snowflake becomes load-bearing from the week 11 connector and the week 12 dbt and bronze loads). Weeks 12-15 running dbt and monthly refreshes may legitimately push higher - that is why the monitor is 100/month, not 15/week.
 - This runbook configures **your own account only**; it modifies nothing in the repository, no shared infrastructure, and no existing files.
-

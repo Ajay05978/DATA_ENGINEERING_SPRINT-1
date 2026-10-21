@@ -4,6 +4,8 @@ Every term used in Data Sprint 1, defined plainly. If a document or a task uses 
 
 Terms are grouped by where you meet them. Most definitions include the tradeoff or the reason, because at the cohort review you will be asked for the reason and not the definition.
 
+Setup steps for VS Code, Git and Snowflake are in `docs/14-vscode-snowflake-setup-guide.md`. The team project repo, and how the `delivery/` folder is kept up to date by the team leader, is in `docs/15-team-project-repo-and-delivery.md`.
+
 ---
 
 ## The client and the data
@@ -58,9 +60,9 @@ Terms are grouped by where you meet them. Most definitions include the tradeoff 
 
 **Primary key** - The column that uniquely identifies a row. Snowflake accepts the declaration but does not enforce it, which is why uniqueness in this project is enforced with tests rather than with constraints.
 
-**Constraint** - A rule the database enforces: NOT NULL, UNIQUE, CHECK, FOREIGN KEY. In Snowflake only NOT NULL is enforced. This surprises people, and the Data Integrity task group in week 2 exists so the surprise happens early.
+**Constraint** - A rule the database enforces: NOT NULL, UNIQUE, CHECK, FOREIGN KEY. In Snowflake only NOT NULL is enforced. This surprises people, and the Data Integrity task group in week 3 exists so the surprise happens early.
 
-**NULL** - Unknown, not zero and not empty string. `NULL = NULL` is not true, which is why `IS NULL` exists. Writing zero where the value is unknown is the mistake the Missing Values task group in week 3 is designed to prevent.
+**NULL** - Unknown, not zero and not empty string. `NULL = NULL` is not true, which is why `IS NULL` exists. Writing zero where the value is unknown is the mistake the Missing Values task group in week 5 is designed to prevent.
 
 **COALESCE** - Returns the first non-NULL argument. Used for display, so a report can show "Not reported" without changing the stored value.
 
@@ -70,7 +72,7 @@ Terms are grouped by where you meet them. Most definitions include the tradeoff 
 
 **EXCEPT / MINUS and INTERSECT** - Set difference and set overlap. Comparing this month's snapshot to last month's is exactly a set difference, which is how disappeared CINs are found.
 
-**CTE (Common Table Expression)** - A named result defined with `WITH` at the top of a query. Same result as a nested subquery, far easier for a reviewer to read, which is the whole point of the Views and CTEs task group in week 5.
+**CTE (Common Table Expression)** - A named result defined with `WITH` at the top of a query. Same result as a nested subquery, far easier for a reviewer to read, which is the whole point of the Views and CTEs task group in week 7.
 
 **View** - A saved query that behaves like a table. Nothing is stored; it runs each time it is used.
 
@@ -142,7 +144,7 @@ The tradeoff: three copies of the data cost more storage, and buy the ability to
 
 **Merge conflict** - Two people changed the same lines. Git stops and asks you to decide. Resolution steps are in `10-troubleshooting.md`.
 
-**dbt** - A tool for writing transformations as SQL `SELECT` statements, which it turns into tables and views, with tests and dependency ordering. Replaces hand-maintained scripts that nobody can run in the right order.
+**dbt** - A tool for writing transformations as SQL `SELECT` statements, which it turns into tables and views, with tests and dependency ordering. Replaces hand-maintained scripts that nobody can run in the right order. In this cohort the default is dbt Core: installed with pip, run in the VS Code terminal, with the connection kept in a `profiles.yml` that is never committed. dbt Projects on Snowflake, run inside a Snowsight Workspace, is an optional extra.
 
 **dbt model** - One `.sql` file containing one `SELECT`. dbt handles the `CREATE` and the ordering.
 
@@ -186,4 +188,4 @@ The full story of each tool above - what it does in this project and why we chos
 
 **Runbook** - Operating instructions for the finished platform: how to refresh each source, what to check when a run fails, who to contact. Judged by whether a stranger can run the pipeline using only the runbook.
 
-**Teach-back** - Explaining a thing you just learned to a teammate while they do it themselves. Used in the Teach-Back task group in week 10, because being able to do something and being able to explain it are different skills.
+**Teach-back** - Explaining a thing you just learned to a teammate while they do it themselves. Used in the Teach-Back task group in week 12, because being able to do something and being able to explain it are different skills.

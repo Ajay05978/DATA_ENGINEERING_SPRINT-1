@@ -2,6 +2,8 @@
 
 **Open this when a tool breaks and the error means nothing to you.** Find your symptom, apply the fix, and if it still fails, post in Discord with the exact command and the exact error.
 
+For setup help with VS Code, Git and Snowflake, see `docs/14-vscode-snowflake-setup-guide.md`. For the team project repo and the `delivery/` folder, see `docs/15-team-project-repo-and-delivery.md`; only the team leader updates `delivery/`.
+
 Everything here is a tooling failure, not a thinking failure. Nothing in this file gives away an answer to a task.
 
 ---
@@ -29,7 +31,7 @@ You are in the wrong folder. `cd` into the cloned repository. `pwd` tells you wh
 
 GitHub does not accept your account password from the command line.
 
-- Using HTTPS: generate a personal access token with the `repo` scope and paste that when asked for a password. See `02-tools-setup.md`, section 2.
+- Using HTTPS: generate a personal access token with the `repo` scope and paste that when asked for a password. See `docs/14-vscode-snowflake-setup-guide.md` for Git and GitHub setup.
 - Using SSH: check `ssh -T git@github.com` greets you by username.
 
 ### Push rejected: `Updates were rejected because the remote contains work that you do not have`
@@ -148,7 +150,7 @@ open(path, encoding="utf-8-sig")     # strips a byte order mark
 open(path, encoding="latin-1")       # last resort, never fails, may mangle characters
 ```
 
-Record which encoding each file needed in your notes. The Stages and File Formats task group (week 10) asks for it.
+Record which encoding each file needed in your notes. The Stages and File Formats task group (week 6) asks for it.
 
 ### `SSLError` or `CertificateError` downloading from a government site
 
@@ -162,11 +164,11 @@ You did not pass a timeout. Every network call in this project needs one:
 requests.get(url, timeout=30)
 ```
 
-A hang with no timeout is why the Retry Logic task group in week 5 exists.
+A hang with no timeout is why the Retry Logic task group in week 7 exists.
 
 ### `MemoryError`, or the machine freezes reading a big file
 
-You loaded the whole file into memory. This is exactly what the Generators task group in week 6 fixes: read it with a generator, one row at a time, and never hold the whole file.
+You loaded the whole file into memory. This is exactly what the Generators task group in week 8 fixes: read it with a generator, one row at a time, and never hold the whole file.
 
 ### pytest says `no tests ran`
 
@@ -230,6 +232,8 @@ Speed matters, and hiding it is worse than the drop.
 ---
 
 ## dbt
+
+In this cohort, dbt means dbt Core, run from the VS Code terminal. dbt Projects on Snowflake is an optional extra.
 
 ### `Could not find profile named 'x'`
 
