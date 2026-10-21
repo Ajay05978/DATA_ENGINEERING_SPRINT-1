@@ -53,8 +53,20 @@ That is deliberate. Cleaning starts in week 3. This week is understanding plus f
 
 ## 1 · Discovery Brief **[MILESTONE]**
 
-- [ ] **Task 1 - Write the discovery brief** (ID `B1.1`): Read the client story in `docs/01-project-brief.md`, section 1. Write a one page discovery brief. It must cover: what we are building, who uses it, what questions it must answer, what is still unclear, and what "done" looks like. Use plain language, as if the client will read it.
+- [x] **Task 1 - Write the discovery brief** (ID `B1.1`): Read the client story in `docs/01-project-brief.md`, section 1. Write a one page discovery brief. It must cover: what we are building, who uses it, what questions it must answer, what is still unclear, and what "done" looks like. Use plain language, as if the client will read it.
   **Commit:** `discovery/discovery_brief.md`, open a pull request for peer review.
+
+  # Discovery Brief
+
+We are building a platform that brings company data from four Indian government websites into one place. It will help banks, lenders, and businesses check company details before making decisions.
+
+Users should be able to check if a company is active, if it has faced bankruptcy, and how it compares with other companies in its state and industry. They should also be able to view old records.
+
+We will collect data from MCA, IBBI, the MCA data portal, and RBI. Python will help us clean the data, Snowflake will store it, and a dashboard will show the results.
+
+We still need to know how many years of data to keep, how often to update it, and what makes a company risky.
+
+The project is complete when data from all four sources is cleaned, stored, updated regularly, and shown on a dashboard that is easy to use.
 
 - [ ] **Task 2 - List the open questions** (ID `B1.2`): Write down the five questions you would ask the client if you had thirty minutes with them. Focus on things the brief cannot decide alone, like how far back the history must go, and what "risk" means to them.
   **Commit:** append to `discovery/discovery_brief.md` in an "Open Questions" section, update the same pull request.
