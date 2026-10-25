@@ -12,3 +12,14 @@ Certain thing that still unclear are the MCA data updates monthly and the IBBI d
 
 ## What "done" looks like
 The final done will look like if a non technical person look at the platform and search for a company it should give the idea of how the company is ,lending or buying from that company is good or bad decision not by just a random prediction by citing the proofs that are supporting the statement
+
+## Open Questions
+1.According to you what will be the conditions for include a company in blacklist
+
+2.Would you need the role back acces control to restrict the sensitive data
+
+3.How many years datas do you need in the platform
+
+4.would you need any other datas other than these four gov datas
+
+5.How frequently are you expecting the upadtes on th platform
