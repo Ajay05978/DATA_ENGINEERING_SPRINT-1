@@ -20,6 +20,6 @@ The final done will look like if a non technical person look at the platform and
 
 3.How many years datas do you need in the platform
 
-4.would you need any other datas other than these four gov datas
+4.would you need any other datas other than four gov datas
 
 5.How frequently are you expecting the upadtes on th platform
