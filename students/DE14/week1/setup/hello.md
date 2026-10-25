@@ -1,2 +1,0 @@
-ajay setup check
-
