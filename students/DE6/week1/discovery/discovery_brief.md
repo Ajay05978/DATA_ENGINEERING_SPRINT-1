@@ -12,12 +12,16 @@ it will use the client and maybe even a non-tech guy then we have to make this v
 
 ## What is still unclear
 
+where will datas get and is it opensource and free and what kind of datas it will be raw oe cleaned.
+
+## What "done" looks like
+
+in the end it will be look like a simple dashbaord in background its very complex structure but they users feel very simple and understandble
+
+## Open Questions
+
    1:how frequently you want updates on dashboard?
    2:do you have any specification or any kind of industries you want to specify?
    3:do you have any specific time period which is companies registerd or do you want all available companies in india?
    4:what do you expect from us in end of production can you give me a image of your imagination?
    5:how much history you want keep in dashboard?maximum or minimum?
-
-## What "done" looks like
-
-in the end it will be look like a simple dashbaord in background its very complex structure but they users feel very simple and understandble
