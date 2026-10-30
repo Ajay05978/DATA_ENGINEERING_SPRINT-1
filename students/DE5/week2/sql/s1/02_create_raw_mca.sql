@@ -20,3 +20,7 @@ CREATE TABLE DE05_WEEK2.BRONZE.RAW_MCA_KERALA
     nic_code VARCHAR,
     CompanyIndustrialClassification VARCHAR
 );
+
+-- Why every column is VARCHAR at this stage: we don't have any idea about datatype of each values so we have to take a look into the datatype of each coloumns.
+
+SELECT * FROM DE5_WEEK2.BRONZE.RAW_MCA_MCA_KERALAL;
